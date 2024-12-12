@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Artículo</title>
+</head>
+<body>
+    <h1>Agregar Artículo a la Lista de Compras</h1>
+    <form method="POST">
+        <label for="item">Artículo:</label>
+        <input type="text" name="item" required>
+        <button type="submit">Agregar</button>
+    </form>
+    <a href="{{ url_for('index') }}">Volver a la lista</a>
+</body>
+</html>

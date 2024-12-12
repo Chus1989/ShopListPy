@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Compras</title>
+</head>
+<body>
+    <h1 class = "lista_title title">Lista de Compras</h1>
+    <ul>
+        {% for item in items %}
+            <li>
+                <input type="checkbox">
+                {{ item }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('add_item') }}">Agregar un artículo</a>
+</body>
+</html>
