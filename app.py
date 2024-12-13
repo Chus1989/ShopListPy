@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from model import ShoppingList
 
+
 app = Flask(__name__)
 shopping_list = ShoppingList()
 
@@ -18,3 +19,4 @@ def add_item():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    
