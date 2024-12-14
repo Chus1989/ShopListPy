@@ -1,22 +1,17 @@
 from interfaceProductDAO import InterfaceProductDAO
 import os
 import json
-
-class Prod:
-    def __init__(self):
-        self.name = "ajo"
-        self.purchased = False
-        self.num = 10
+import sys,os
+from Model.modelProduct import ModelProduct
 
 class ProductDAOJSON(InterfaceProductDAO):
 
     JSON = os.path.join(os.getcwd(),"DB","products.json")
 
     def __init__(self):
-        prod = Prod()
-        self.data = self._loadJSON()
-        self.modify_product(1,"name","pamon")
         
+        self.data = self._loadJSON()
+        self.delete_product(2)
 
     def _loadJSON(self):
         try:
@@ -29,12 +24,12 @@ class ProductDAOJSON(InterfaceProductDAO):
 
 
     def create_product(self,prod):
-
-        newID = len(self.data.keys())+1
         
-        self.data[newID] = [{"name":prod.name},
-                            {"purchased":prod.purchased},
-                            {"number":prod.num}]
+        newProduct = [{"id":prod.id},
+                      {"name":prod.name},
+                        {"purchased":prod.purchased},
+                        {"number":prod.number}]
+        self.data["items"].append(newProduct)
 
         try:
             with open(self.JSON, 'w') as file:
@@ -44,30 +39,28 @@ class ProductDAOJSON(InterfaceProductDAO):
                  
     
     def show_products(self):
-        for i,j in self.data.items():
-            for each in i:
-                print(self.data[each])
+        lstaProds = []
+        for each in self.data["items"]:
+            lstaProds.append(ModelProduct(each[0]["id"],each[1]["name"],each[2]["purchased"],each[3]["number"]))
+        print(lstaProds)
+        return self.data["items"]
 
 
     
     def show_oneproduct(self,id):
-        for each in self.data.keys():
-            if str(id) == each:
-                print(self.data[each])
+        prd = None
+        for each in self.data["items"]:
+            if each[0]["id"] == id:
+                prd = ModelProduct(each[0]["id"],each[1]["name"],each[2]["purchased"],each[3]["number"])
+        
+        return prd
     
     def modify_product(self,id,parameter=None,newparameter=None):
-        if self.data[str(id)]:
-            for i in self.data[str(id)]:
-                
-                if (parameter and newparameter):
-                    try:
-                        if i[parameter]:
-                    
-                            i[parameter] = newparameter
-                    except:
-                        print("no existe el valor")
-                else:
-                    raise ValueError
+        for each in self.data["items"]:
+            if each[0]["id"] == id:
+                for i in range(1,4):
+                    if parameter in each[i]:
+                        each[i][parameter] = newparameter
 
         try:
             with open(self.JSON,"w") as file:
@@ -76,16 +69,14 @@ class ProductDAOJSON(InterfaceProductDAO):
             print(f"Error al modificar :: {e}")    
 
 
-    def delete_product(self,id):
-        
-        if self.data[str(id)]:
-            del self.data[str(id)]
-        
-        try:
-            with open(self.JSON,"w") as file:
-                json.dump(self.data, file, indent = 4)
-        except (FileNotFoundError,json.JSONDecodeError) as e:
-            print(f"se ha encontrado un error : {e}")
+    def delete_product(self, id):
+        self.data["items"] = [sublista for sublista in self.data["items"] if not any(diccionario.get("id") == id for diccionario in sublista)]
 
+        try:
+            
+            with open(self.JSON, "w") as file:
+                json.dump(self.data, file, indent=4)
+        except (FileNotFoundError, json.JSONDecodeError) as e:
+            print(f"Se ha encontrado un error: {e}")
 
 ProductDAOJSON()

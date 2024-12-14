@@ -9,4 +9,4 @@ class ModelProduct:
         self.number = number
 
     def __repr__(self):
-        return f"The product name is {self.name} and the quantity is : {self.number} and is purchsed = {self.purchased}"
+        return f"The product name is {self.name} and the quantity is : {self.number} and is purchsed = {self.purchased}/n"
