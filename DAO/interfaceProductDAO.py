@@ -1,6 +1,14 @@
-from abc import ABC,abstractmethod
-
-class InterfaceProductDAO(ABC):
+from abc import ABC,abstractmethod,ABCMeta
+from Singleton.SingletonMeta import singletonMeta
+'''
+JESUS JOYAS 2024 Shopping List test
+This class is an abs interface for the dao implementation in json and slqalchemy
+No instantiate this class
+No return
+no args
+'''
+#I use the singleton to instantiate one with the call(abc meta for the subclass)
+class InterfaceProductDAO(ABC,metaclass = singletonMeta):
 
     @abstractmethod
     def create_product(self,prod):

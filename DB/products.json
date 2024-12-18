@@ -22,10 +22,80 @@
                 "name": "ajo"
             },
             {
-                "purchased": true
+                "purchased": false
             },
             {
                 "number": 10
+            }
+        ],
+        [
+            {
+                "id": "3"
+            },
+            {
+                "name": "Pan"
+            },
+            {
+                "purchased": "required"
+            },
+            {
+                "number": "2"
+            }
+        ],
+        [
+            {
+                "id": "4"
+            },
+            {
+                "name": "Zanahoria"
+            },
+            {
+                "purchased": false
+            },
+            {
+                "number": "15"
+            }
+        ],
+        [
+            {
+                "id": "5"
+            },
+            {
+                "name": "Lejia"
+            },
+            {
+                "purchased": false
+            },
+            {
+                "number": "1"
+            }
+        ],
+        [
+            {
+                "id": "6"
+            },
+            {
+                "name": "jabon manos"
+            },
+            {
+                "purchased": false
+            },
+            {
+                "number": "2"
+            }
+        ],
+        [
+            {
+                "id": "6"
+            },
+            {
+                "name": "Lechuga"
+            },
+            {
+                "purchased": true
+            },
+            {
+                "number": "2"
             }
         ]
     ]

@@ -1,17 +1,22 @@
-from interfaceProductDAO import InterfaceProductDAO
-import os
+
 import json
-import sys,os
+import os
+from .interfaceProductDAO import InterfaceProductDAO
 from Model.modelProduct import ModelProduct
+from Singleton.SingletonMeta import singletonMeta
+from abc import ABCMeta,ABC
 
-class ProductDAOJSON(InterfaceProductDAO):
 
+
+class ProductDAOJSON(InterfaceProductDAO ):
+    
     JSON = os.path.join(os.getcwd(),"DB","products.json")
 
     def __init__(self):
+        self.dao_type = 'jsonDAO'
         
         self.data = self._loadJSON()
-        self.delete_product(2)
+        
 
     def _loadJSON(self):
         try:
@@ -23,8 +28,9 @@ class ProductDAOJSON(InterfaceProductDAO):
             print(f"Founded an error {e}")
 
 
-    def create_product(self,prod):
+    def create_product(self,id, name, purchased, number):
         
+        prod = ModelProduct(id,name,purchased,number)
         newProduct = [{"id":prod.id},
                       {"name":prod.name},
                         {"purchased":prod.purchased},
@@ -41,9 +47,10 @@ class ProductDAOJSON(InterfaceProductDAO):
     def show_products(self):
         lstaProds = []
         for each in self.data["items"]:
+            
             lstaProds.append(ModelProduct(each[0]["id"],each[1]["name"],each[2]["purchased"],each[3]["number"]))
-        print(lstaProds)
-        return self.data["items"]
+        
+        return lstaProds
 
 
     
@@ -79,4 +86,3 @@ class ProductDAOJSON(InterfaceProductDAO):
         except (FileNotFoundError, json.JSONDecodeError) as e:
             print(f"Se ha encontrado un error: {e}")
 
-ProductDAOJSON()

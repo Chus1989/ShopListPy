@@ -1,19 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
-    <link rel="stylesheet" href="../static/style.css">
 <head>
     <meta charset="UTF-8">
-    <title class = "title">Lista de Compras</title>
+    <title>Lista de Compras</title>
 </head>
 <body>
-    <h1 class = "lista_title title">Lista de Compras</h1>
-    <ul>
-        {% for item in items %}
-            <li>
-                <input type="checkbox">
-                {{ item }}</li>
-        {% endfor %}
-    </ul>
+    <h1>Lista de Compras</h1>
+
+    
+    <table border="1" style="width: 50%; margin: auto; text-align: center;">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Comprado</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                
+                <td>
+                    {% for item in items %}
+                        <p>{{ item.name }}</p>
+                    {% endfor %}
+                </td>
+
+                
+                <td>
+                    {% for item in items %}
+                        <p>{{ item.number }}</p>
+                    {% endfor %}
+                </td>
+
+                
+                <td>
+                    {% for item in items %}
+                    <p>
+                        <input type="checkbox" {% if item.purchased %}checked{% endif %} ><br>
+                    </p>
+                        
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for item in items %}
+                        <p>
+                            <a href="">Del</a>
+                        </p>
+                    {% endfor %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
     <a href="{{ url_for('add_item') }}">Agregar un artículo</a>
 </body>
 </html>
