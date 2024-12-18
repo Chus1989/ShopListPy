@@ -1,5 +1,6 @@
 
 from .productDAOJSON import ProductDAOJSON
+from .productDAOSQLalchemy import ProdutDAOSQLalchemy
 
 '''
 JESUS JOYAS 2024 shopping list 
@@ -9,8 +10,8 @@ class DAOfactory:
 
     def get_dao(self,dao_type):
         if dao_type == "json_dao":
-            prod = ProductDAOJSON()
-            return prod
+            return ProductDAOJSON()
+            
         if dao_type == "sqlalchemy_dao":
-            return None
+            return ProdutDAOSQLalchemy()
         

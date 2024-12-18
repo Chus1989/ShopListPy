@@ -1,9 +1,9 @@
 from sqlalchemy import Column,Integer, Boolean,String
-from sqlalchemy.ext.declarative import declarative_base
+from DB.connectionSQL import Base
 
-base = declarative_base()
 
-class ModelProductSQLAlchemy(base):
+
+class ModelProductSQLAlchemy(Base):
     __tablename__ = "products"
     id = Column(Integer,primary_key = True,autoincrement = True)
     name = Column(String,nullable = False)
