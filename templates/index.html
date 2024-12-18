@@ -7,7 +7,6 @@
 <body>
     <h1>Lista de Compras</h1>
 
-    
     <table border="1" style="width: 50%; margin: auto; text-align: center;">
         <thead>
             <tr>
@@ -18,38 +17,20 @@
             </tr>
         </thead>
         <tbody>
+            {% for item in items %}
             <tr>
-                
+                <td>{{ item.name }}</td>
+                <td>{{ item.number }}</td>
                 <td>
-                    {% for item in items %}
-                        <p>{{ item.name }}</p>
-                    {% endfor %}
-                </td>
-
-                
-                <td>
-                    {% for item in items %}
-                        <p>{{ item.number }}</p>
-                    {% endfor %}
-                </td>
-
-                
-                <td>
-                    {% for item in items %}
-                    <p>
-                        <input type="checkbox" {% if item.purchased %}checked{% endif %} ><br>
-                    </p>
-                        
-                    {% endfor %}
+                    <input type="checkbox" {% if item.purchased %}checked{% endif %} disabled>
                 </td>
                 <td>
-                    {% for item in items %}
-                        <p>
-                            <a href="">Del</a>
-                        </p>
-                    {% endfor %}
+                    <form method="POST" action="{{ url_for('delete_item', item_id = item.id) }}">
+                        <button type="submit">Del</button>
+                    </form>
                 </td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 

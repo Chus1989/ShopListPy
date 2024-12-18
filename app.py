@@ -3,6 +3,7 @@ from DAO.DAOFactory import DAOfactory
 
 jsonDao = DAOfactory().get_dao("json_dao")
 
+
 app = Flask(__name__)
 
 
@@ -21,7 +22,13 @@ def add_item():
         return redirect(url_for('index'))
     return render_template('add_item.html')
 
-if __name__ == '__main__':
+@app.route('/delete/<int:item_id>', methods = ['GET','POST'])
+def delete_item(item_id):
     
+    jsonDao.delete_product(item_id)
+    return redirect(url_for('index'))
+
+if __name__ == '__main__':
+
     app.run(debug=True)
     

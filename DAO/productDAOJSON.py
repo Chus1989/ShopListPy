@@ -77,12 +77,15 @@ class ProductDAOJSON(InterfaceProductDAO ):
 
 
     def delete_product(self, id):
-        self.data["items"] = [sublista for sublista in self.data["items"] if not any(diccionario.get("id") == id for diccionario in sublista)]
+    
+        self.data["items"] = [
+            sublista for sublista in self.data["items"]
+            if not any(diccionario.get("id") == id for diccionario in sublista)
+        ]
+
 
         try:
-            
             with open(self.JSON, "w") as file:
                 json.dump(self.data, file, indent=4)
         except (FileNotFoundError, json.JSONDecodeError) as e:
             print(f"Se ha encontrado un error: {e}")
-
