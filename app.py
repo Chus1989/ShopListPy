@@ -27,6 +27,16 @@ def delete_item(item_id):
     
     jsonDao.delete_product(item_id)
     return redirect(url_for('index'))
+@app.route('/update/<int:item_id>',methods= ['POST'])
+def update_item(item_id):
+    name_update = request.form.get('name')
+    nummber_update = request.form.get('number')
+    purchased_update = request.form.get('purchased') == 'True'
+    print(name_update)
+    print(nummber_update)
+    print(purchased_update)
+    
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
 

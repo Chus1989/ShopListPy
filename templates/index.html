@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de Compras</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <h1>Lista de Compras</h1>
@@ -18,22 +19,81 @@
         </thead>
         <tbody>
             {% for item in items %}
-            <tr>
-                <td>{{ item.name }}</td>
-                <td>{{ item.number }}</td>
-                <td>
-                    <input type="checkbox" {% if item.purchased %}checked{% endif %} disabled>
-                </td>
-                <td>
-                    <form method="POST" action="{{ url_for('delete_item', item_id = item.id) }}">
-                        <button type="submit">Del</button>
-                    </form>
-                </td>
-            </tr>
+                <tr data-id="{{ item.id }}">
+                    <!-- Editable Name -->
+                    <td>
+                        <input type="text" class="editable-name" value="{{ item.name }}">
+                    </td>
+
+                    <!-- Editable Quantity -->
+                    <td>
+                        <input type="number" class="editable-number" value="{{ item.number }}">
+                    </td>
+
+                    <!-- Editable Purchased (Checkbox) -->
+                    <td>
+                        <input type="checkbox" class="editable-purchased" {% if item.purchased %}checked{% endif %}>
+                    </td>
+
+                    <!-- Delete Link -->
+                    <td>
+                        <a href="{{ url_for('delete_item', item_id=item.id) }}">Eliminar</a>
+                    </td>
+                </tr>
             {% endfor %}
         </tbody>
     </table>
 
     <a href="{{ url_for('add_item') }}">Agregar un artículo</a>
+
+    <script>
+        // Actualizar "name", "number" y "purchased" usando AJAX al perder el foco (blur) o cambiar
+        $(document).on('blur', '.editable-name, .editable-number', function() {
+            var row = $(this).closest('tr');
+            var itemId = row.data('id'); // Obtener el id del item
+            var name = row.find('.editable-name').val(); // Obtener el nuevo nombre
+            var number = row.find('.editable-number').val(); // Obtener la nueva cantidad
+
+            // Enviar los datos al servidor usando AJAX
+            $.ajax({
+                url: '/update/' + itemId,
+                method: 'POST',
+                data: {
+                    name: name,
+                    number: number
+                    
+                },
+                success: function(response) {
+                    console.log('Datos actualizados');
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error al actualizar:', error);
+                }
+            });
+        });
+
+        
+        $(document).on('change', '.editable-purchased', function() {
+            var row = $(this).closest('tr');
+            var itemId = row.data('id');
+            var purchased = row.find('.editable-purchased').prop('checked'); // Obtener el estado del checkbox
+
+            
+            $.ajax({
+                url: '/update/' + itemId,
+                method: 'POST',
+                data: {
+                    purchased: purchased ? 'true' : 'false'
+                
+                },
+                success: function(response) {
+                    console.log('Estado actualizado');
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error al actualizar:', error);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

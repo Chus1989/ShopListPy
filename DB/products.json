@@ -41,20 +41,6 @@
             {
                 "number": 2
             }
-        ],
-        [
-            {
-                "id": 5
-            },
-            {
-                "name": "Lejia"
-            },
-            {
-                "purchased": false
-            },
-            {
-                "number": "1"
-            }
         ]
     ]
 }

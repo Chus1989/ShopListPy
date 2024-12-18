@@ -74,7 +74,7 @@ class ProductDAOJSON(InterfaceProductDAO ):
                 json.dump(self.data,file,indent=4)
         except (FileNotFoundError,json.JSONDecodeError) as e:
             print(f"Error al modificar :: {e}")    
-
+    
 
     def delete_product(self, id):
     
