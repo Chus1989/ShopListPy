@@ -1,5 +1,5 @@
 # ShopListPy
-# ¡Hola, soy [Tu Nombre]! 👋
+# ¡Hola, soy JESUS JOYAS! 👋
 
 Soy **[tu especialización o rol]**, con experiencia en **Rigging, Character TD, Dev**. Me encanta aprender nuevas tecnologías, resolver problemas complejos, y contribuir a proyectos significativos.
 
