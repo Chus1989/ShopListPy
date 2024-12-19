@@ -1,8 +1,8 @@
-from abc import ABC,abstractmethod,ABCMeta
+from abc import ABC,abstractmethod
 from Singleton.SingletonMeta import singletonMeta
 '''
 JESUS JOYAS 2024 Shopping List test
-This class is an abs interface for the dao implementation in json and slqalchemy
+This class is an abstract(ABC) interface for the dao implementation in json and slqalchemy
 No instantiate this class
 No return
 no args
