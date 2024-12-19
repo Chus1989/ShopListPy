@@ -26,7 +26,7 @@ Soy **[tu especialización o rol]**, con experiencia en **Rigging, Character TD,
 ---
 
 ## 📈 Estadísticas de GitHub
-![Tus estadísticas de GitHub](https://github-readme-stats.vercel.app/api?username=@Chus1989&show_icons=true&theme=radical)
+![Tus estadísticas de GitHub](https://github-readme-stats.vercel.app/api?username=Chus1989&show_icons=true&theme=radical)
 
 ---
 
