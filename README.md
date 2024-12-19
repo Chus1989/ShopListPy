@@ -1,33 +1,32 @@
 # ShopListPy
-# ¡Hola, soy JESUS JOYAS! 👋
+# Hi, I'm JESUS JOYAS! 👋
 
-Soy **[tu especialización o rol]**, con experiencia en **Rigging, Character TD, Dev**. Me encanta aprender nuevas tecnologías, resolver problemas complejos, y contribuir a proyectos significativos.
+I am a **Character TD and Tool Developer**, with experience in **Rigging, Character TD, and Development**. I love learning new technologies, solving complex problems, and contributing to meaningful projects.
 
-- 🔭 Actualmente estoy trabajando en: **SHOPPING LIST**.
-- 🌱 Estoy aprendiendo: **Patrones de diseño, html, flask, python**.
-- 💬 Pregúntame sobre: **Python dev**.
-- 📫 Cómo contactarme: **jjoyas89@gmail.com**.
-
----
-
-## 🚀 Mis habilidades y herramientas
-[![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![SQLAlchemy](https://img.shields.io/badge/-SQLAlchemy-00758F?logo=python&logoColor=white)](https://www.sqlalchemy.org/)
-[![Flask](https://img.shields.io/badge/-Flask-000000?logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
-[![Git](https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white)](https://git-scm.com/)
-<!-- Añade más tecnologías aquí -->
+- 🔭 Currently working on: **SHOPPING LIST**.  
+- 🌱 Currently learning: **Design patterns, HTML, Flask, Python**.  
+- 💬 Ask me about: **Python development**.  
+- 📫 How to reach me: **jjoyas89@gmail.com**.  
 
 ---
 
-## 🛠️ Proyectos destacados
-1. **[Shopping List]https://github.com/Chus1989/ShopListPy.git**  
-   Este proyecto es para practicar diferentes algoritmos,partones y maneras de desarrollar una app con html, conbase de datos, flask, json, dao , etc.
+## 🚀 My Skills and Tools  
+[![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white)](https://www.python.org/)  
+[![SQLAlchemy](https://img.shields.io/badge/-SQLAlchemy-00758F?logo=python&logoColor=white)](https://www.sqlalchemy.org/)  
+[![Flask](https://img.shields.io/badge/-Flask-000000?logo=flask&logoColor=white)](https://flask.palletsprojects.com/)  
+[![Git](https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white)](https://git-scm.com/)  
 
 ---
 
-## 📈 Estadísticas de GitHub
-![Tus estadísticas de GitHub](https://github-readme-stats.vercel.app/api?username=Chus1989&show_icons=true&theme=radical)
+## 🛠️ Featured Projects  
+1. **[Shopping List](https://github.com/Chus1989/ShopListPy.git)**  
+   This project is designed to practice different algorithms, patterns, and ways to develop an app using HTML, databases, Flask, JSON, DAO, etc.
 
 ---
 
-¡Gracias por visitar mi perfil!
+## 📈 GitHub Statistics  
+![Your GitHub Stats](https://github-readme-stats.vercel.app/api?username=Chus1989&show_icons=true&theme=radical)  
+
+---
+
+Thank you for visiting my profile!
